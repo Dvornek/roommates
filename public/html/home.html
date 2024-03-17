@@ -1,0 +1,32 @@
+<style>
+    .option{
+        border: 5px white solid;
+        float: left;
+        width: 150px ;
+        height: 150px;
+        margin: 40px;
+        background-color:rgba(59, 59, 59, 0.5);
+        border-radius:50px;
+        padding:3%;
+    }
+</style>
+    <div class="flex" style="padding:1%;">
+        <!-- budget -->
+        <label for="slider">Budžet:</label>
+        <input type="range" id="slider" name="budget" min="50" max="950" step="50" value="950" oninput="updateSliderValue(this.value)" />
+        <span id="sliderValue">950</span><span id="currency">&euro;</span> <br><br>
+        <!-- menja broj za slider atomatski-->
+    </div>
+    <script>
+        function updateSliderValue(value) {
+            document.getElementById('sliderValue').textContent = value;
+        }
+        </script>
+    <div>    
+        <div id="usersContainer">
+            <!-- User cards will be appended here -->
+        </div>     
+    </div>
+<script src="../js/loadTwelve.js"></script>
+
+

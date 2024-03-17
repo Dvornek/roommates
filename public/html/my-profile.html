@@ -1,0 +1,89 @@
+<div class="box">
+    <!-- <img id="avatar "src="*" alt="profilna"> -->
+    <p>Ocena: <span id="rating"></span></p>    
+    <p>Ime: <span id="fname"></span></p>
+    <p>Prezime: <span id="lname"></span></p>
+    <p>Datum: <span id="dob"></span></p>
+    <p>Email: <span id="email"></span></p>
+    <p>Telefon: <span id="telephone"></span></p>
+    <p>Grad: <span id="city"></span></p>
+    <p>Budžet: <span id="budget"> </span>€</p>
+    <p>O meni: <span id="description"></span></p>
+<form>
+ <input type="button" value="Edituj profil" id="editBtn" class="button" onclick="topFunction()">
+</form>
+</div> 
+    <script>
+    // skroluje ka dole gde editujes profil
+    let mybutton = document.getElementById("myBtn");
+        function topFunction() {
+            window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth'
+    });
+}
+    </script>
+</div>
+
+<div class="box" id="edit-form" style="display: none;">
+    <form>
+        <label for="user-fname">Ime:</label> <br>
+        <input type="text" name="fname" id="user-fname"> <br>
+        <label for="user-lname">Prezime:</label> <br>
+        <input type="text" name="lname" id="user-lname"> <br>
+
+        <label for="user-email">Email:</label> <br>
+        <input type="email" name="email" id="user-email"> <br>
+
+        <label for="user-telephone">Telefon:</label> <br>
+        <input type="text" name="telephone" id="user-telephone"> <br>
+
+        <label for="user-city">Grad:</label> <br>
+        <input type="text" name="city" id="user-city"> <br>
+
+        <input type="submit" value="Promeni informaciju">
+    </form>
+
+    <form style="margin-top:50px;" id="password-form"> 
+        <label for="user-newPassword">Nova šifra:</label> <br>
+        <input type="password" name="password" id="user-newPassword"> <br>
+        <label for="user-confirmNewPassword">Ponovi  šifru:</label> <br>
+        <input type="password" name="confirmPassword" id="user-confirmNewPassword"> <br>
+        <input type="submit" value="Promeni šifru">
+    </form>
+
+    <form style="margin-top: 50px;" id="desc-form">
+        <label for="description"> Opis:</label> <br>
+        <textarea name="description" id="descriptionn" cols="30" rows="10" placeholder="O meni"></textarea> <br>
+        <input type="submit" value="Promeni deskripciju">
+    </form>
+    <form style="margin-top:50px;" id="budget-form">
+        <label for="budget">Promeni svoj mesečni budžet</label><br>
+	<div class="flexBox">
+         <label for="slider">Budžet:</label>
+         <input type="range" id="newBudget" name="slider" min="50" max="1000" step="50" value="1000" oninput="updateSliderValue(this.value)">
+         <span id="sliderValue">1000</span><span id="currency">&euro;</span> <br><br>
+	</div>
+	<script>
+	  function updateSliderValue(value) {
+          document.getElementById('sliderValue').textContent = value;
+        }
+        </script>
+        <input type="submit" value="Promeni" class="button">
+    </form>
+</div>
+<script src="../js/my-profile.js"></script>
+<script src ="../js/updatePublicData.js"></script>
+<script src="../js/passwordChange.js"></script>
+<script src="../js/updateDescription.js"></script>
+<script src="../js/updateBudget.js"></script>
+<script>
+    document.getElementById("editBtn").addEventListener("click", function() {
+        var editForm = document.getElementById("edit-form");
+        if (editForm.style.display === "none") {
+            editForm.style.display = "block";
+        } else {
+            editForm.style.display = "none";
+        }
+    });
+</script>

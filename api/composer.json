@@ -1,0 +1,11 @@
+{
+    "require": {
+        "symfony/dotenv": "^5.0",
+        "respect/validation": "^2.2"
+    },
+    "config": {
+        "platform": {
+          "php": "8.0"
+        }
+      }
+}

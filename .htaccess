@@ -1,0 +1,27 @@
+# ---------------------------- REDIRECT ALL TO index.php --------------------------
+RewriteEngine On
+RewriteBase /roommates/
+
+# If the request is for an existing directory
+RewriteCond %{REQUEST_FILENAME} -d
+# Route the request to index.php
+RewriteRule ^ index.php [L]
+
+# If the request is not for a valid file
+RewriteCond %{REQUEST_FILENAME} !-f
+# If the request is not for a valid directory
+RewriteCond %{REQUEST_FILENAME} !-d
+# Route the request to index.php
+RewriteRule ^ index.php [L]
+
+# Redirect requests for .env file in /restaurant/api to index.php
+RewriteRule ^api/\.env$ index.php [L]
+
+# If the request does not end with one of the specified file extensions
+RewriteCond %{REQUEST_URI} !\.(js|img|png|jpeg|jpg|css|html|svg)$ [NC]
+# Route the request to index.php
+RewriteRule ^ index.php [L]
+
+
+# Prevent Apache from displaying the directory index  
+Options -Indexes
